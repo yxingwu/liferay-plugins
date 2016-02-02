@@ -21,7 +21,7 @@
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 <%@ taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
-<%@ page import="com.liferay.portal.kernel.util.Randomizer" %>
+<%@ page import="com.liferay.portal.kernel.security.RandomUtil" %>
 <%@ page import="com.liferay.tich.model.Event" %>
 <%@ page import="com.liferay.tich.util.TICHUtil" %>
 
@@ -43,7 +43,7 @@ List<Event> events = TICHUtil.getEvents();
 			<c:when test="<%= windowState.equals(WindowState.NORMAL) %>">
 
 				<%
-				Event event = events.get(Randomizer.getInstance().nextInt(events.size()));
+				Event event = events.get(RandomUtil.nextInt(events.size()));
 				%>
 
 				<strong><em><%= event.getYear() %></em></strong>

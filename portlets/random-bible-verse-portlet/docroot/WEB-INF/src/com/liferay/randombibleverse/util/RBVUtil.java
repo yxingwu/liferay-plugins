@@ -16,7 +16,7 @@ package com.liferay.randombibleverse.util;
 
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.util.Randomizer;
+import com.liferay.portal.kernel.security.RandomUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.webcache.WebCacheItem;
 import com.liferay.portal.kernel.webcache.WebCachePoolUtil;
@@ -123,7 +123,7 @@ public class RBVUtil {
 	private Verse _getVerse(PortletPreferences preferences, Locale locale) {
 		Bible bible = _getBible(preferences, locale);
 
-		int i = Randomizer.getInstance().nextInt(_verses.size());
+		int i = RandomUtil.nextInt(_verses.size());
 
 		return _getVerse(
 			_verses.get(i), bible.getVersionId(), bible.getLanguage());
